@@ -51,10 +51,24 @@ describe(Tamagotchi) do
    end
  end
  describe("#sleep") do
-   it("allows user to set how much sleep") do
+   it("allows user to set how much sleep and subtracts it from sleep level") do
      my_pet = Tamagotchi.new("raven")
      my_pet.sleep(5)
      expect(my_pet.sleep_level()).to(eq(4))
+   end
+ end
+ describe("#feed") do
+   it("allows user to choose how many bottles to feed and adjusts food level") do
+     my_pet = Tamagotchi.new("jorge")
+     my_pet.feed(2)
+     expect(my_pet.food_level()).to(eq(9))
+   end
+ end
+ describe("#score") do
+   it("calculates the amounts left in sleep,activity, food vars") do
+     my_pet = Tamagotchi.new("timothy")
+     my_pet.score()
+     expect(my_pet.score()).to(eq(30))
    end
  end
 end

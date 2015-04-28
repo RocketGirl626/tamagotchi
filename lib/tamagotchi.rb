@@ -41,5 +41,13 @@ class Tamagotchi
     @sleep_level = @sleep_level.-(hours)
     self.time_passes()
   end
-
+  define_method(:feed) do |bottles|
+    self.time_passes()
+    self.time_passes()
+    self.time_passes()
+    @food_level = @food_level.+(bottles)
+  end
+  define_method(:score) do
+    score = @food_level.+(@sleep_level).+(@activity_level)
+  end
 end
