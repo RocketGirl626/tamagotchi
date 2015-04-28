@@ -37,10 +37,24 @@ describe(Tamagotchi) do
       my_pet = Tamagotchi.new("rocket girl")
       expect(my_pet.is_alive?()).to(eq(true))
     end
-    it("is dead if the food level is 0") do
+    it("is not dead if the food level is 0 but activity & sleep are > 0") do
       my_pet = Tamagotchi.new("bob")
       my_pet.set_food_level()
-      expect(my_pet.is_alive?()).to(eq(false))
+      expect(my_pet.is_alive?()).to(eq(true))
     end
   end
+  describe("#play") do
+    it("sets activity level based on number of minutes user wants to play") do
+     my_pet = Tamagotchi.new("kenny")
+     my_pet.play(4)
+     expect(my_pet.activity_level()).to(eq(5))
+   end
+ end
+ describe("#sleep") do
+   it("allows user to set how much sleep") do
+     my_pet = Tamagotchi.new("raven")
+     my_pet.sleep(5)
+     expect(my_pet.sleep_level()).to(eq(4))
+   end
+ end
 end
