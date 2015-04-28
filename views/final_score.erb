@@ -1,0 +1,21 @@
+<h1>How good of a Tamagotchi parent are you???</h1>
+
+
+
+
+<h5>Your pets activity level is:  <%= @my_pet.activity_level() %></h5>
+<h5>Your pets sleep level is:  <%= @my_pet.sleep_level() %></h5>
+<h5>Your pets food level is:  <%= @my_pet.food_level() %></h5>
+
+<h5>Your score as a Tamagotchi parent is:  <%= @final_score %></h5>
+
+<% if @final_score.>=(25) %>
+<h5> You're a great parent!Start a daycare</h5>
+<% elsif @final_score.>=(15) && @final_score.<=(24) %>
+<h5> You're ok as a parent but work on it!</h5>
+<% elsif @final_score.>=(1) && @final_score.<=(14) %>
+<h5> You sorta suck. Ask your own mom for help!</h5>
+<% else
+ @final_score.==(0) %>
+<h5> Your pet is dead. We called CPS.</h5>
+<% end %>
